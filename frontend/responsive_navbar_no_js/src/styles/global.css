@@ -1,0 +1,5 @@
+
+@theme {
+  --color-*: initial;
+  --font-body: {"Inter", 'sans-serif'};
+}

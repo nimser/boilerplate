@@ -1,0 +1,9 @@
+home:
+  title: Home
+  slug: /
+mentoring:
+  title: Mentoring
+  slug: /mentoring
+services:
+  title: Services
+  slug: /services

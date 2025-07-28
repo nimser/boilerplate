@@ -1,0 +1,75 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content"
+
+type MenuItem = CollectionEntry<"headerMenuItems">
+const menuItems = await getCollection("headerMenuItems")
+---
+
+<header>
+  <a>Logo</a>
+  <nav id="mobile-menu" popover>
+    {
+      menuItems.map(({ data: { slug, title } }: MenuItem) => {
+        return (
+            <a href={slug}>{title}</a>
+        )
+      })
+    }
+  </nav>
+  <button popovertarget="mobile-menu" class="menu-trigger"></button>
+</header>
+
+<style>
+:global(body) {
+  --header-height: 5rem;
+  --max-page-width: 1200px;
+  --responsive-menu-width: calc(14ch + 4vw);
+  --navbar-font-size: 1.5rem;
+}
+header {
+  container-type: inline-size;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: max(1rem, calc((100vw - var(--max-page-width))/2));
+  height: var(--header-height);
+  background-color: cyan;
+  font-size: var(--navbar-font-size);
+
+  .menu-trigger {
+    width: 2rem;
+    height: 2rem;
+    background-color: deeppink;
+    cursor: pointer;
+  }
+
+  nav {
+    width: min(var(--responsive-menu-width), 100vw);
+    margin-left: auto;
+    position: absolute;
+    right:0;
+    top: var(--header-height);
+    background-color: red;
+
+    a {  
+      margin-inline: 2ch;
+      display: block;
+    }
+  }
+
+  @container (width > 800px) {
+    display: flex;
+    .menu-trigger { display: none; }
+
+    nav {
+      position: static;
+      width: inherit;
+      display: flex;
+      margin-left: 0;
+      background-color: green;
+
+      a { display: inline; }
+    }
+  }
+}
+</style>
