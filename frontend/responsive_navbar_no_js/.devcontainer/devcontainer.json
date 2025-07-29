@@ -1,4 +1,5 @@
 {
+  "name": "responsive-navbar-no-js",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:18-bullseye",
   "customizations": {
     "vscode": {
