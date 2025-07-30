@@ -1,0 +1,35 @@
+{
+  "name": "layout_navbar_and_sticky_footer",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18-bullseye",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "astro-build.astro-vscode"
+      ]
+    },
+    "settings": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "prettier.semi": false,
+      "[astro]": {
+        "editor.defaultFormatter": "astro-build.astro-vscode"
+      },
+      "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+  "forwardPorts": [
+    4321
+  ],
+  "portsAttributes": {
+    "4321": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
